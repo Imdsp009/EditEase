@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container"> 
+        <h1>Welcome to Edit Ease</h1>
+        <p>To use Edit Ease, <a href="/view/index">click here</a></p>
+
+        <button id="logout-btn">Logout</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                alert("Please log in first.");
+                window.location.href = "login.html";
+            }
+
+            document.getElementById("logout-btn").addEventListener("click", function () {
+                localStorage.removeItem("token");
+                window.location.href = "login.html";
+            });
+        });
+    </script>
+</body>
+</html>
